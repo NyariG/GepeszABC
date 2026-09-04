@@ -13,10 +13,10 @@
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            primary: '#0f172a', // Sötétkék/Pala
-            secondary: '#3b82f6', // Kék
-            accent: '#f59e0b', // Narancs
-            danger: '#ef4444', // Piros
+            primary: '#0f172a',
+            secondary: '#3b82f6',
+            accent: '#f59e0b',
+            danger: '#ef4444',
           }
         }
       }
@@ -27,7 +27,6 @@
     .hero-bg { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
     .text-balance { text-wrap: balance; }
     
-    /* 3D Könyvborító effektek */
     .perspective-1000 { perspective: 1000px; }
     .book-spine {
         position: absolute;
@@ -50,28 +49,20 @@
         box-shadow: -5px 10px 15px rgba(0,0,0,0.1);
     }
     
-    /* Beleolvasó elhalványodás */
     .fade-out-bottom {
         -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
     }
     
-    /* Letisztult görgetősáv a beleolvasóhoz (hogy egérrel is lehessen lapozni) */
-    .custom-scrollbar::-webkit-scrollbar {
-        height: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.5);
-    }
+    .custom-scrollbar::-webkit-scrollbar { height: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5); }
   </style>
+
+  <!-- IDE ILLLESZD BE A BARION ALAPKÓDOT (Amit a Barion ad a <head> részbe) -->
+  <!-- A kód valahogy így kezdődik majd: window["bp"] = window["bp"] || function () ... -->
+
 </head>
 <body class="font-sans text-gray-800 antialiased bg-gray-50">
 
@@ -81,7 +72,8 @@
         <i class="fa-solid fa-house-chimney text-secondary"></i>
         <div>NYÁRI<span class="text-secondary">TERV</span></div>
       </div>
-      <a href="#rendeles" class="bg-primary hover:bg-slate-800 text-white font-bold py-2.5 px-6 rounded-lg transition duration-300 shadow-md flex items-center gap-2 text-sm md:text-base">
+      <!-- Hozzáadtuk a barion-track-click osztályt az eseményfigyelőhöz -->
+      <a href="#rendeles" class="barion-track-click bg-primary hover:bg-slate-800 text-white font-bold py-2.5 px-6 rounded-lg transition duration-300 shadow-md flex items-center gap-2 text-sm md:text-base">
         <span>Kérem a könyvet és bónuszokat</span> <i class="fa-solid fa-arrow-down"></i>
       </a>
     </div>
@@ -101,7 +93,8 @@
           Ne fizess milliókat a tanulópénzre! Az <b>Épületgépészeti ABC</b> lefordítja neked a szaki-zsargont, és pajzsot ad a rosszul méretezett, pénznyelő gépészeti rendszerek ellen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="#rendeles" class="bg-accent hover:bg-yellow-500 text-white text-center font-black py-4 px-8 rounded-xl transition duration-300 shadow-xl shadow-yellow-500/30 text-lg flex items-center justify-center gap-3">
+          <!-- Hozzáadtuk a barion-track-click osztályt -->
+          <a href="#rendeles" class="barion-track-click bg-accent hover:bg-yellow-500 text-white text-center font-black py-4 px-8 rounded-xl transition duration-300 shadow-xl shadow-yellow-500/30 text-lg flex items-center justify-center gap-3">
             Kérem a könyvet és a bónuszokat <i class="fa-solid fa-chevron-right"></i>
           </a>
         </div>
@@ -339,13 +332,9 @@
               <li class="flex items-start gap-3"><i class="fa-solid fa-check text-accent mt-1 text-lg"></i> <span>Tervezési kupon </span></li>
             </ul>
           </div>
-       
-
-        <!-- ÚJ GARANCIA BLOKK -->
+          
           <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-6 md:p-8 rounded-3xl shadow-lg relative overflow-hidden mt-6">
-            <!-- Díszítő háttér ikon -->
             <i class="fa-solid fa-shield-halved absolute -right-4 -bottom-4 text-8xl text-amber-500/10 -rotate-12"></i>
-            
             <div class="flex flex-col sm:flex-row items-start gap-4 relative z-10">
               <div class="shrink-0 mt-1">
                 <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl shadow-sm border border-amber-100">
@@ -360,14 +349,7 @@
               </div>
             </div>
           </div>
-         </div>
-        
-
-
-
-
-
-        
+        </div>
         
         <div class="md:col-span-7">
           <div class="bg-slate-900 rounded-3xl shadow-2xl border border-slate-700 overflow-hidden relative">
@@ -408,7 +390,7 @@
         <div class="flex-1">
           <h4 class="font-black text-primary text-sm mb-1 text-slate-900">Süti (cookie) hozzájárulás</h4>
           <p class="text-gray-600 text-[11px] leading-relaxed">
-            A www.gepeszabc.hu sütiket használ a látogatói élmény javítására és marketing (Meta Pixel) hirdetések céljából. 
+            A www.gepeszabc.hu sütiket használ a látogatói élmény javítására és marketing hirdetések céljából. 
             Kérjük, engedélyezze a sütiket, vagy ismerje meg az 
             <button id="cookie-policy-trigger" class="text-secondary underline hover:text-blue-600 font-semibold focus:outline-none">Adatkezelési Tájékoztatónkat</button>.
           </p>
@@ -417,13 +399,13 @@
   
       <div class="space-y-1.5 border-t border-gray-100 pt-2.5">
         <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 bg-gray-50 p-1.5 rounded-lg border border-gray-100">
-          <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500"></i>Szükséges (Működési) sütik</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500"></i>Szükséges (Csalásmegelőzés & Működés)</span>
           <span class="text-gray-400 italic text-[9px]">Mindig aktív</span>
         </div>
         
         <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 bg-gray-50 p-1.5 rounded-lg border border-gray-100 hover:border-blue-100 transition">
           <label for="cookie-marketing" class="flex items-center gap-1.5 cursor-pointer select-none">
-            <i class="fa-solid fa-bullseye text-accent"></i> Meta Pixel Remarketing hirdetések
+            <i class="fa-solid fa-bullseye text-accent"></i> Meta & Barion Pixel Marketing
           </label>
           <input type="checkbox" id="cookie-marketing" class="w-3.5 h-4 rounded text-secondary border-gray-300 focus:ring-secondary cursor-pointer">
         </div>
@@ -484,47 +466,35 @@
             <i class="fa-solid fa-circle-info"></i> Beágyazott fizetés és megrendelés
           </h4>
           <p class="text-xs text-blue-800">
-            A honlapon keresztüli fizetést és e-book megrendelést egy külső partner, a <strong>SalesForm rendszer</strong> biztosítja és bonyolítja le. A vásárlás során megadott számlázási és kapcsolattartási adatok közvetlenül ezen a zárt, titkosított rendszeren futnak keresztül, amelyre a külső fizetési/megrendelési szolgáltató saját adatkezelési tájékoztatója az irányadó. Az Adatkezelő a bankkártyás fizetési adatokat nem ismeri meg és nem kezeli.
+            A honlapon keresztüli fizetést és e-book megrendelést egy külső partner, a <strong>SalesForm rendszer</strong> biztosítja és bonyolítja le. A vásárlás során megadott számlázási és kapcsolattartási adatok közvetlenül ezen a zárt, titkosított rendszeren futnak keresztül. Az Adatkezelő a bankkártyás fizetési adatokat nem ismeri meg és nem kezeli.
           </p>
         </div>
   
+        <!-- FRISSÍTETT 3. PONT: META + BARION PIXEL -->
         <div>
-          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">3. Meta Pixel hirdetési sütik (Cookies)</h4>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">3. Hirdetési és mérési sütik (Meta és Barion Pixel)</h4>
           <p class="text-xs mb-2">
-            Weboldalunk kizárólag a <strong>Meta Platforms Ireland Ltd.</strong> (4 Grand Canal Square, Dublin, Írország) által biztosított <strong>Meta Pixel (Facebook pixel)</strong> követőkódot és remarketing sütit alkalmazza.
+            Weboldalunk a Meta Pixel (Facebook) és a Barion Pixel követőkódjait alkalmazza.
           </p>
-          <ul class="list-disc pl-5 space-y-1 text-xs">
-            <li><strong>Cél:</strong> Statisztikai mérés, hirdetések hatékonyságának elemzése, valamint személyre szabott reklámok megjelenítése a Meta (Facebook, Instagram) felületein.</li>
-            <li><strong>Jogalap:</strong> A látogató önkéntes és kifejezett hozzájárulása (GDPR 6. cikk (1) bekezdés a) pontja), amelyet a süti sáv elfogadásával ad meg.</li>
-            <li><strong>Megőrzési idő:</strong> Legfeljebb a hozzájárulás visszavonásáig vagy a sütik böngészőből való manuális törléséig (általában max. 180 nap).</li>
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li><strong>Barion Alap Pixel (Csalásmegelőzés):</strong> A Barion Pixel Alap verziója a fizetési tranzakciók biztonsága és csalásmegelőzés érdekében minden oldalbetöltéskor lefut. Ez a Barion jogos érdeke és működéshez elengedhetetlen (Nem igényel külön hozzájárulást).</li>
+            <li><strong>Meta Pixel & Barion Teljes Pixel (Marketing):</strong> Ezen kódok célja a statisztikai mérés, és a látogatói események (pl. termékmegtekintés, kosárba tétel) naplózása remarketing célból. <strong>Jogalap:</strong> A látogató önkéntes és kifejezett hozzájárulása (GDPR 6. cikk (1) a) pont), amelyet a süti sáv elfogadásával ad meg.</li>
+            <li><strong>Megőrzési idő:</strong> Legfeljebb a hozzájárulás visszavonásáig vagy a sütik törléséig (max. 180 nap).</li>
           </ul>
         </div>
   
         <div>
           <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">4. Adatfeldolgozó (Tárhelyszolgáltató)</h4>
-          <p class="text-xs">
-            Az oldal működését kiszolgáló fizikai szervert és webszerver-tárhelyet az alábbi partner biztosítja technikai adatfeldolgozóként:
-          </p>
           <ul class="space-y-1 bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs mt-1.5">
             <li><strong>Név:</strong> Netlify, Inc.</li>
             <li><strong>Székhely:</strong> 440 2nd Street, Suite 100, San Francisco, CA 94107, USA</li>
-            <li><strong>Megfelelőség:</strong> Az adattovábbítás az EU-USA Adatvédelmi Keretrendszer (DPF) megfelelőségi határozatának védelme alatt áll.</li>
           </ul>
         </div>
   
         <div>
-          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">5. Az Ön jogai</h4>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">5. Az Ön jogai és Jogorvoslat</h4>
           <p class="text-xs">
-            Bármikor jogosult kérni a tájékoztatást a sütik működéséről, visszavonni a hozzájárulását (a süti beállításokban vagy a böngésző sütijeinek törlésével), vagy kérheti a technikai adatok törlését az <strong>info@nyariterv.hu</strong> címen.
-          </p>
-        </div>
-  
-        <div class="pt-2 border-t border-gray-100">
-          <h4 class="font-extrabold text-primary mb-1 text-slate-800 uppercase tracking-wider text-xs">6. Jogorvoslat</h4>
-          <p class="text-xs">
-            Ha úgy véli, hogy jogaiban sérelem érte, kérjük, először forduljon közvetlenül az Adatkezelőhöz a békés megoldás érdekében. Emellett jogosult panaszt benyújtani a felügyeleti hatóságnál is:<br>
-            <strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong><br>
-            1055 Budapest, Falk Miksa utca 9-11. | ugyfelszolgalat@naih.hu
+            Bármikor jogosult visszavonni a marketing sütikhez adott hozzájárulását a böngésző sütijeinek törlésével, vagy kérheti az adatok törlését az <strong>info@nyariterv.hu</strong> címen. Panaszával a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) is fordulhat.
           </p>
         </div>
       </div>
@@ -540,6 +510,22 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      
+      // --- BARION PIXEL TERMÉK OBJEKTUM KIALAKÍTÁSA ---
+      const barionProductProperties = {
+        'contentType': 'Product',
+        'currency': 'HUF',
+        'id': 'epuletgepeszeti_abc_ebook',
+        'name': "Épületgépészeti ABC",
+        'quantity': 1.0,
+        'unit': 'db',
+        'unitPrice': 7990.0,
+        'brand': 'Nyári Terv',
+        'category': 'e-book',
+        'customerValue': 7990.0,
+        'list': 'LandingPage'
+      };
+
       // --- COOKIE BANNER ELEMEK ---
       const cookieBanner = document.getElementById('cookie-banner');
       const acceptAllBtn = document.getElementById('cookie-accept-all');
@@ -559,7 +545,7 @@
       const savedConsent = localStorage.getItem(cookieStorageKey);
     
       // =======================================================================
-      // 1. SÜTI SÁV LOGIKA
+      // 1. SÜTI SÁV ÉS BARION LOGIKA
       // =======================================================================
       if (!savedConsent) {
         cookieBanner.classList.remove('hidden');
@@ -574,10 +560,7 @@
     
       // Kijelöltek mentése
       saveSelectedBtn.addEventListener('click', function () {
-        saveConsent({
-          necessary: true,
-          marketing: marketingCheckbox.checked
-        });
+        saveConsent({ necessary: true, marketing: marketingCheckbox.checked });
       });
     
       // Összes elutasítása (Csak szükségesek)
@@ -594,14 +577,35 @@
       function applyConsent(consent) {
         if (consent.marketing) {
           loadMetaPixel();
+          
+          // BARION FULL PIXEL (Marketing engedéllyel)
+          if (typeof window.bp === 'function') {
+            console.log('Barion: Hozzájárulás és Termékmegtekintés küldése...');
+            bp('track', 'grantConsent');
+            bp('track', 'contentView', barionProductProperties);
+          }
         } else {
-          console.log('Meta Pixel letiltva a felhasználó által.');
+          console.log('Marketing sütik (Meta + Barion Full) letiltva a felhasználó által.');
         }
       }
+
+      // --- BARION GOMBNYOMÁS FIGYELŐ (Kassza esemény) ---
+      const orderButtons = document.querySelectorAll('.barion-track-click');
+      orderButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const currentConsentStr = localStorage.getItem(cookieStorageKey);
+          if (currentConsentStr) {
+            const currentConsent = JSON.parse(currentConsentStr);
+            if (currentConsent.marketing && typeof window.bp === 'function') {
+              console.log('Barion: Kassza folyamat indul (initiateCheckout)');
+              bp('track', 'initiateCheckout', barionProductProperties);
+            }
+          }
+        });
+      });
     
-      // Meta Pixel Dinamikus Betöltése
+      // --- META PIXEL BETÖLTÉSE ---
       function loadMetaPixel() {
-        console.log('Meta Pixel betöltése hozzájárulással...');
         if (window.fbq) return; 
         
         !function(f,b,e,v,n,t,s)
@@ -640,7 +644,6 @@
     
       if (privacyLinkFooter) privacyLinkFooter.addEventListener('click', openPrivacyModal);
       if (cookieTriggerFromBanner) cookieTriggerFromBanner.addEventListener('click', openPrivacyModal);
-    
       if (modalCloseBtnX) modalCloseBtnX.addEventListener('click', closePrivacyModal);
       if (modalCloseBtnBottom) modalCloseBtnBottom.addEventListener('click', closePrivacyModal);
     
