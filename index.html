@@ -56,9 +56,21 @@
         mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
     }
     
-    /* Egyedi görgetősáv a beleolvasóhoz */
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Letisztult görgetősáv a beleolvasóhoz (hogy egérrel is lehessen lapozni) */
+    .custom-scrollbar::-webkit-scrollbar {
+        height: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
   </style>
 </head>
 <body class="font-sans text-gray-800 antialiased bg-gray-50">
@@ -187,12 +199,13 @@
         <p class="text-xl text-slate-400">Részletek az e-könyvből. Hogy pontosan tudd, mire adod ki a pénzed.</p>
       </div>
       
-      <div class="flex overflow-x-auto gap-6 pb-8 pt-4 hide-scrollbar snap-x snap-mandatory">
+      <!-- JAVÍTOTT BELEOLVASÓ: Egyedi görgetősáv (custom-scrollbar), fix szélességű kártyák (w-[85vw] md:w-[400px] flex-none) -->
+      <div class="flex overflow-x-auto gap-6 pb-8 pt-4 custom-scrollbar snap-x snap-mandatory">
         
-        <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-secondary shrink-0 h-[450px]">
+        <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-secondary h-[450px]">
           <div class="text-sm font-bold text-secondary uppercase tracking-widest mb-4">1. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">A jó gépészet láthatatlan...</h3>
-          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium">
+          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium whitespace-normal">
             Képzeld el, hogy beköltözöl álmaid gyönyörű, újonnan épült házába. A falak tökéletesek, a burkolat gyönyörű. Mégis, amikor leülsz a kanapéra filmet nézni, érzed, hogy húz a hideg a nyakadra. A hálószobában reggelre nehéz, állott a levegő, a fürdőszobában pedig perceket kell folyatni a csapot, mire megérkezik a meleg víz...
           </div>
           <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center font-bold text-primary flex flex-col items-center gap-1">
@@ -201,10 +214,10 @@
           </div>
         </div>
         
-        <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-accent shrink-0 h-[450px]">
+        <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-accent h-[450px]">
           <div class="text-sm font-bold text-accent uppercase tracking-widest mb-4">2. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">A m²-alapú méretezés halála</h3>
-          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium">
+          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium whitespace-normal">
             A hazai építőipari közbeszédben még ma is makacsul tartja magát az az ökölszabály, miszerint egy átlagos családi háznak négyzetméterenként nagyjából 100 Watt fűtési teljesítményre van szüksége. Eszerint egy 100 négyzetméteres házhoz a szaki gondolkodás nélkül egy 10 kW-os fűtési rendszert választ. Ez a megközelítés a mai technológiák mellett nemcsak tudománytalan, hanem egyenesen gazdasági öngyilkosság. A túlméretezés ára ugyanis...
           </div>
           <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center font-bold text-primary flex flex-col items-center gap-1">
@@ -213,10 +226,10 @@
           </div>
         </div>
         
-        <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-blue-500 shrink-0 h-[450px]">
+        <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-blue-500 h-[450px]">
           <div class="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">4. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">HMV vs. Puffertároló</h3>
-          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium">
+          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium whitespace-normal">
             Kívülről mindkettő egy nagy, szigetelt hengernek néz ki, a laikusok pedig gyakran keverik a kettőt (vagy azt hiszik, egy is elég belőlük). Valójában két teljesen eltérő feladatot látnak el, és a bennük lévő víz sem keveredik soha! A HMV-tárolóban az a tiszta ivóvíz van, amivel fürdesz. A puffertárolóban viszont a fűtési víz van. Ezt a vizet nem iszod meg. Egyfajta hő-akkumulátorként működik, amit a kazán teletölt, a házad pedig akkor vesz ki belőle...
           </div>
           <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center font-bold text-primary flex flex-col items-center gap-1">
@@ -225,10 +238,10 @@
           </div>
         </div>
         
-        <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-emerald-500 shrink-0 h-[450px]">
+        <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-emerald-500 h-[450px]">
           <div class="text-sm font-bold text-emerald-500 uppercase tracking-widest mb-4">8. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">Pára, CO2 és a légszomj</h3>
-          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium">
+          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium whitespace-normal">
             Egy zárt hálószobában két alvó felnőtt mindössze 2-3 óra alatt elhasználja a friss levegőt. A CO2 szint az egészségügyi határértékek többszörösére (akár 2000-3000 ppm-re) ugrik, ami másnap reggel fejfájást és "kialvatlanság" érzetet okoz. Az egészségügyi szabványok szerint egy hálószobában/irodában emberenként óránként legalább 30-60 köbméter friss levegőt kellene biztosítani. Ezt ablaknyitással lehetetlen megoldani, kivéve ha...
           </div>
           <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center font-bold text-primary flex flex-col items-center gap-1">
@@ -237,10 +250,10 @@
           </div>
         </div>
         
-        <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-danger shrink-0 h-[450px]">
+        <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-danger h-[450px]">
           <div class="text-sm font-bold text-danger uppercase tracking-widest mb-4">13. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">Tévhit: Lebegteti a port</h3>
-          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium">
+          <div class="fade-out-bottom flex-1 text-gray-700 leading-relaxed font-medium whitespace-normal">
             Tévhit: „A padlófűtés lebegteti a port, és a gyerek folyton beteg lesz tőle." A valóság az, hogy ez a 80-as évek 50-60 °C-os vízzel működő, rosszul méretezett rendszereinél igaz volt. A mai padlófűtések alacsony hőmérsékleten (max. 28-29 °C) üzemelnek, így minimális a konvekció (légáramlás). Nem lesz portornádó a nappaliban. Sőt, kevesebb port lebegtet, mint egy forró, hagyományos lemezradiátor...
           </div>
           <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center font-bold text-primary flex flex-col items-center gap-1">
@@ -252,7 +265,7 @@
       </div>
       
       <div class="text-center mt-6 text-slate-400 text-sm">
-        <i class="fa-solid fa-arrows-left-right"></i> Húzd oldalra a további oldalakhoz
+        <i class="fa-solid fa-arrows-left-right"></i> Húzd oldalra vagy görgess a további oldalakhoz
       </div>
     </div>
   </section>
@@ -330,16 +343,16 @@
         </div>
         
         <div class="md:col-span-7">
-          <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-200">
-            
-            <iframe src="https://sf.nyariterv.hu/t/e/epuletgepeszeti-abc" scrolling="no" id="sfembed" style="min-width:100%;border:0"></iframe>
+          <!-- JAVÍTOTT SALESFORM BEÁGYAZÁS (Sötét mód és formázott keret) -->
+          <div class="bg-slate-900 rounded-3xl shadow-2xl border border-slate-700 overflow-hidden relative">
+            <iframe src="https://sf.nyariterv.hu/t/e/epuletgepeszeti-abc?dark" scrolling="no" id="sfembed" style="width:100%; border:0; display:block;"></iframe>
             <script type="text/javascript" src="https://sf.nyariterv.hu/assets/js/iframeResizer.min.js"></script>
             <script>
               var iframe = document.getElementById('sfembed'); 
-              iframe.src = iframe.src + window.location.search; 
-              iFrameResize({ log: false }, '#sfembed');
+              iframe.src = iframe.src + (window.location.search ? '&' + window.location.search.substring(1) : ''); 
+              iFrameResize({ log: false, checkOrigin: false }, '#sfembed');
             </script>
-            </div>
+          </div>
         </div>
         
       </div>
@@ -369,7 +382,7 @@
         </div>
         <div>
           <p class="text-gray-600 text-xs leading-relaxed text-balance">
-            A www.gepeszavc.hu sütiket használ a weboldal alapvető működéséhez, a látogatottsági adatok elemzéséhez (Google Analytics) és hirdetési tevékenységre (Meta Pixel, Google Ads). Kérjük, engedélyezze a sütik használatát az Önnek legmegfelelőbb szinten! Részletes információkért olvassa el az <a href="gepeszavc-adatvedelem-v2.docx" class="text-secondary underline hover:text-blue-600 font-semibold">Adatkezelési Tájékoztatónkat</a>.
+            A www.gepeszabc.hu sütiket használ a weboldal alapvető működéséhez, a látogatottsági adatok elemzéséhez (Google Analytics) és hirdetési tevékenységre (Meta Pixel, Google Ads). Kérjük, engedélyezze a sütik használatát az Önnek legmegfelelőbb szinten! Részletes információkért olvassa el az <a href="gepeszavc-adatvedelem-v2.docx" class="text-secondary underline hover:text-blue-600 font-semibold">Adatkezelési Tájékoztatónkat</a>.
           </p>
         </div>
       </div>
@@ -419,37 +432,30 @@
       const analyticsCheckbox = document.getElementById('cookie-analytics');
       const marketingCheckbox = document.getElementById('cookie-marketing');
       
-      // Egyedi tároló kulcs a böngészőben
-      const storageKey = 'gepeszavc-cookie-consent';
+      const storageKey = 'gepeszabc-cookie-consent';
       
-      // Ellenőrizzük, hogy van-e már korábban elmentett döntés
       const savedConsent = localStorage.getItem(storageKey);
       
       if (!savedConsent) {
-        // Ha nincs döntés, megjelenítjük a sütisávot 2 másodperc után
         setTimeout(() => {
           banner.classList.remove('hidden');
         }, 2000);
       } else {
-        // Ha már van döntés, betöltjük a sütik alapján a követőkódokat
         const consent = JSON.parse(savedConsent);
         applyConsent(consent);
       }
       
-      // Sütik mentése és a banner elrejtése
       function saveConsent(consent) {
         localStorage.setItem(storageKey, JSON.stringify(consent));
         banner.classList.add('hidden');
         applyConsent(consent);
       }
       
-      // 1. ESEMÉNY: Mindet elfogadja
       acceptAllBtn.addEventListener('click', function () {
         const consent = { necessary: true, analytics: true, marketing: true };
         saveConsent(consent);
       });
       
-      // 2. ESEMÉNY: Csak a kijelölteket menti el
       saveSelectedBtn.addEventListener('click', function () {
         const consent = {
           necessary: true,
@@ -459,20 +465,15 @@
         saveConsent(consent);
       });
       
-      // 3. ESEMÉNY: Elutasítja az opcionálisakat (csak a szükségeseket tartja meg)
       rejectOptionalBtn.addEventListener('click', function () {
         const consent = { necessary: true, analytics: false, marketing: false };
         saveConsent(consent);
       });
       
-      // KÖVETŐKÓDOK MEGFELELŐ BETÖLTÉSE
       function applyConsent(consent) {
-        // Ha engedélyezte az analitikai sütiket, betöltjük a Google Analytics-et
         if (consent.analytics) {
           loadGoogleAnalytics();
         }
-        
-        // Ha engedélyezte a marketing sütiket, betöltjük a hirdetési pixeleket
         if (consent.marketing) {
           loadMetaPixel();
           loadGoogleAdsRemarketing();
