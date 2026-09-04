@@ -199,7 +199,6 @@
         <p class="text-xl text-slate-400">Részletek az e-könyvből. Hogy pontosan tudd, mire adod ki a pénzed.</p>
       </div>
       
-      <!-- JAVÍTOTT BELEOLVASÓ: Egyedi görgetősáv (custom-scrollbar), fix szélességű kártyák (w-[85vw] md:w-[400px] flex-none) -->
       <div class="flex overflow-x-auto gap-6 pb-8 pt-4 custom-scrollbar snap-x snap-mandatory">
         
         <div class="w-[85vw] md:w-[400px] flex-none bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-secondary h-[450px]">
@@ -343,7 +342,6 @@
         </div>
         
         <div class="md:col-span-7">
-          <!-- JAVÍTOTT SALESFORM BEÁGYAZÁS (Sötét mód és formázott keret) -->
           <div class="bg-slate-900 rounded-3xl shadow-2xl border border-slate-700 overflow-hidden relative">
             <iframe src="https://sf.nyariterv.hu/t/e/epuletgepeszeti-abc?dark" scrolling="no" id="sfembed" style="width:100%; border:0; display:block;"></iframe>
             <script type="text/javascript" src="https://sf.nyariterv.hu/assets/js/iframeResizer.min.js"></script>
@@ -367,130 +365,268 @@
       </div>
       <p class="mb-6 font-medium text-slate-500">© 2026 Nyári Gergő Mátyás E.V. Minden jog fenntartva.</p>
       <div class="flex flex-wrap justify-center gap-6 font-semibold">
-        <a href="#" class="hover:text-white transition">Általános Szerződési Feltételek</a>
-        <a href="#" class="hover:text-white transition">Adatkezelési Tájékoztató</a>
-        <a href="#" class="hover:text-white transition">Kapcsolat</a>
+        <a href="javascript:void(0)" id="privacy-policy-link" class="hover:text-white transition cursor-pointer">Adatkezelési Tájékoztató</a>
       </div>
     </div>
   </footer>
 
-  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t border-gray-200 shadow-2xl md:max-w-xl md:left-4 md:bottom-4 md:rounded-2xl md:border hidden">
+  <!-- SÜTI SÁV (COOKIE BANNER) -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t border-gray-200 shadow-2xl md:max-w-md md:left-4 md:bottom-4 md:rounded-2xl md:border hidden">
     <div class="space-y-4">
       <div class="flex items-start gap-3">
         <div class="text-secondary text-2xl mt-1">
           <i class="fa-solid fa-cookie-bite"></i>
         </div>
-        <div>
-          <p class="text-gray-600 text-xs leading-relaxed text-balance">
-            A www.gepeszabc.hu sütiket használ a weboldal alapvető működéséhez, a látogatottsági adatok elemzéséhez (Google Analytics) és hirdetési tevékenységre (Meta Pixel, Google Ads). Kérjük, engedélyezze a sütik használatát az Önnek legmegfelelőbb szinten! Részletes információkért olvassa el az <a href="gepeszavc-adatvedelem-v2.docx" class="text-secondary underline hover:text-blue-600 font-semibold">Adatkezelési Tájékoztatónkat</a>.
+        <div class="flex-1">
+          <h4 class="font-black text-primary text-sm mb-1 text-slate-900">Süti (cookie) hozzájárulás</h4>
+          <p class="text-gray-600 text-[11px] leading-relaxed">
+            A www.gepeszabc.hu sütiket használ a látogatói élmény javítására és marketing (Meta Pixel) hirdetések céljából. 
+            Kérjük, engedélyezze a sütiket, vagy ismerje meg az 
+            <button id="cookie-policy-trigger" class="text-secondary underline hover:text-blue-600 font-semibold focus:outline-none">Adatkezelési Tájékoztatónkat</button>.
           </p>
         </div>
       </div>
-      
-      <div id="cookie-settings" class="space-y-2.5 border-t border-gray-100 pt-3">
-        <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-500"></i>Szükséges (Technikai)</span>
-          <span class="text-gray-400 italic font-semibold text-[10px]">Mindig aktív</span>
+  
+      <div class="space-y-1.5 border-t border-gray-100 pt-2.5">
+        <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 bg-gray-50 p-1.5 rounded-lg border border-gray-100">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-green-500"></i>Szükséges (Működési) sütik</span>
+          <span class="text-gray-400 italic text-[9px]">Mindig aktív</span>
         </div>
         
-        <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100 hover:border-blue-100 transition">
-          <label for="cookie-analytics" class="flex items-center gap-2 cursor-pointer select-none">
-            <i class="fa-solid fa-chart-line text-blue-500"></i> Analitika / Statisztika
+        <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 bg-gray-50 p-1.5 rounded-lg border border-gray-100 hover:border-blue-100 transition">
+          <label for="cookie-marketing" class="flex items-center gap-1.5 cursor-pointer select-none">
+            <i class="fa-solid fa-bullseye text-accent"></i> Meta Pixel Remarketing hirdetések
           </label>
-          <input type="checkbox" id="cookie-analytics" class="w-4 h-4 rounded text-secondary border-gray-300 focus:ring-secondary cursor-pointer">
-        </div>
-        
-        <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100 hover:border-amber-100 transition">
-          <label for="cookie-marketing" class="flex items-center gap-2 cursor-pointer select-none">
-            <i class="fa-solid fa-bullseye text-accent"></i> Marketing / Remarketing
-          </label>
-          <input type="checkbox" id="cookie-marketing" class="w-4 h-4 rounded text-secondary border-gray-300 focus:ring-secondary cursor-pointer">
+          <input type="checkbox" id="cookie-marketing" class="w-3.5 h-4 rounded text-secondary border-gray-300 focus:ring-secondary cursor-pointer">
         </div>
       </div>
-      
-      <div class="flex flex-col sm:flex-row gap-2 pt-2 text-xs font-bold">
-        <button id="cookie-accept-all" class="flex-1 bg-accent hover:bg-yellow-500 text-white py-3 px-4 rounded-xl transition duration-200 shadow-md text-center">
-          Mindet elfogadom
+  
+      <div class="flex gap-2 pt-1 text-[11px] font-bold">
+        <button id="cookie-accept-all" class="flex-1 bg-accent hover:bg-yellow-500 text-white py-2.5 px-3 rounded-lg transition duration-200 shadow-md text-center">
+          Elfogadom
         </button>
-        <button id="cookie-save-selected" class="flex-1 bg-primary hover:bg-slate-800 text-white py-3 px-4 rounded-xl transition duration-200 text-center">
-          Kijelöltek mentése
+        <button id="cookie-save-selected" class="flex-1 bg-primary hover:bg-slate-800 text-white py-2.5 px-3 rounded-lg transition duration-200 text-center">
+          Mentés
         </button>
-        <button id="cookie-reject-optional" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl transition duration-200 text-center">
-          Csak a szükségesek
+        <button id="cookie-reject-optional" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 px-3 rounded-lg transition duration-200 text-center">
+          Elutasítás
         </button>
       </div>
     </div>
   </div>
+  
+  <!-- ADATKEZELÉSI TÁJÉKOZTATÓ POPUP MODAL -->
+  <div id="privacy-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] transform transition-all duration-300 scale-95 opacity-0" id="privacy-modal-card">
+      
+      <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50 rounded-t-2xl">
+        <div class="flex items-center gap-2 text-primary">
+          <i class="fa-solid fa-shield-halved text-xl text-secondary"></i>
+          <h3 class="font-black text-lg md:text-xl text-slate-900">Adatkezelési Tájékoztató</h3>
+        </div>
+        <button id="privacy-modal-close" class="text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition duration-150">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+  
+      <div class="p-6 overflow-y-auto text-sm text-gray-600 space-y-5 leading-relaxed">
+        <p class="font-semibold text-gray-800 text-xs">Hatályos: 2026. szeptember 4. napjától</p>
+        
+        <div>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">1. Az Adatkezelő adatai</h4>
+          <ul class="space-y-1 bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs">
+            <li><strong>Név:</strong> Nyári Gergő Mátyás egyéni vállalkozó</li>
+            <li><strong>Székhely:</strong> 9151 Abda, Bécsi utca 2/c</li>
+            <li><strong>Nyilvántartási szám:</strong> 62546834</li>
+            <li><strong>Adószám:</strong> 92201952-1-28</li>
+            <li><strong>Kapcsolat / E-mail:</strong> info@nyariterv.hu</li>
+            <li><strong>Weboldal:</strong> www.gepeszabc.hu</li>
+          </ul>
+        </div>
+  
+        <div>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">2. Az adatkezelés jellege és köre</h4>
+          <p class="text-xs">
+            Jelen weboldal egy bemutató jellegű termékoldal (landing page). <strong>A weboldalon közvetlenül és helyben semmilyen személyes adat gyűjtése, rögzítése vagy tárolása nem történik.</strong> Nincs hírlevél feliratkozás, és nincsenek helyi űrlapok.
+          </p>
+        </div>
+  
+        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+          <h4 class="font-extrabold text-blue-900 mb-1.5 text-xs flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-info"></i> Beágyazott fizetés és megrendelés
+          </h4>
+          <p class="text-xs text-blue-800">
+            A honlapon keresztüli fizetést és e-book megrendelést egy külső partner, a <strong>SalesForm rendszer</strong> biztosítja és bonyolítja le. A vásárlás során megadott számlázási és kapcsolattartási adatok közvetlenül ezen a zárt, titkosított rendszeren futnak keresztül, amelyre a külső fizetési/megrendelési szolgáltató saját adatkezelési tájékoztatója az irányadó. Az Adatkezelő a bankkártyás fizetési adatokat nem ismeri meg és nem kezeli.
+          </p>
+        </div>
+  
+        <div>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">3. Meta Pixel hirdetési sütik (Cookies)</h4>
+          <p class="text-xs mb-2">
+            Weboldalunk kizárólag a <strong>Meta Platforms Ireland Ltd.</strong> (4 Grand Canal Square, Dublin, Írország) által biztosított <strong>Meta Pixel (Facebook pixel)</strong> követőkódot és remarketing sütit alkalmazza.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li><strong>Cél:</strong> Statisztikai mérés, hirdetések hatékonyságának elemzése, valamint személyre szabott reklámok megjelenítése a Meta (Facebook, Instagram) felületein.</li>
+            <li><strong>Jogalap:</strong> A látogató önkéntes és kifejezett hozzájárulása (GDPR 6. cikk (1) bekezdés a) pontja), amelyet a süti sáv elfogadásával ad meg.</li>
+            <li><strong>Megőrzési idő:</strong> Legfeljebb a hozzájárulás visszavonásáig vagy a sütik böngészőből való manuális törléséig (általában max. 180 nap).</li>
+          </ul>
+        </div>
+  
+        <div>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">4. Adatfeldolgozó (Tárhelyszolgáltató)</h4>
+          <p class="text-xs">
+            Az oldal működését kiszolgáló fizikai szervert és webszerver-tárhelyet az alábbi partner biztosítja technikai adatfeldolgozóként:
+          </p>
+          <ul class="space-y-1 bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs mt-1.5">
+            <li><strong>Név:</strong> Netlify, Inc.</li>
+            <li><strong>Székhely:</strong> 440 2nd Street, Suite 100, San Francisco, CA 94107, USA</li>
+            <li><strong>Megfelelőség:</strong> Az adattovábbítás az EU-USA Adatvédelmi Keretrendszer (DPF) megfelelőségi határozatának védelme alatt áll.</li>
+          </ul>
+        </div>
+  
+        <div>
+          <h4 class="font-extrabold text-primary mb-1.5 text-slate-800 uppercase tracking-wider text-xs">5. Az Ön jogai</h4>
+          <p class="text-xs">
+            Bármikor jogosult kérni a tájékoztatást a sütik működéséről, visszavonni a hozzájárulását (a süti beállításokban vagy a böngésző sütijeinek törlésével), vagy kérheti a technikai adatok törlését az <strong>info@nyariterv.hu</strong> címen.
+          </p>
+        </div>
+  
+        <div class="pt-2 border-t border-gray-100">
+          <h4 class="font-extrabold text-primary mb-1 text-slate-800 uppercase tracking-wider text-xs">6. Jogorvoslat</h4>
+          <p class="text-xs">
+            Ha úgy véli, hogy jogaiban sérelem érte, kérjük, először forduljon közvetlenül az Adatkezelőhöz a békés megoldás érdekében. Emellett jogosult panaszt benyújtani a felügyeleti hatóságnál is:<br>
+            <strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong><br>
+            1055 Budapest, Falk Miksa utca 9-11. | ugyfelszolgalat@naih.hu
+          </p>
+        </div>
+      </div>
+  
+      <div class="p-4 border-t border-gray-100 flex justify-end bg-gray-50 rounded-b-2xl">
+        <button id="privacy-modal-close-btn" class="bg-primary hover:bg-slate-800 text-white font-bold py-2 px-6 rounded-xl transition duration-150 text-xs">
+          Megértettem és bezárom
+        </button>
+      </div>
+  
+    </div>
+  </div>
 
   <script>
-    // Cookie Banner Kezelése
     document.addEventListener("DOMContentLoaded", function () {
-      const banner = document.getElementById('cookie-banner');
+      // --- COOKIE BANNER ELEMEK ---
+      const cookieBanner = document.getElementById('cookie-banner');
       const acceptAllBtn = document.getElementById('cookie-accept-all');
       const saveSelectedBtn = document.getElementById('cookie-save-selected');
       const rejectOptionalBtn = document.getElementById('cookie-reject-optional');
-      const analyticsCheckbox = document.getElementById('cookie-analytics');
       const marketingCheckbox = document.getElementById('cookie-marketing');
-      
-      const storageKey = 'gepeszabc-cookie-consent';
-      
-      const savedConsent = localStorage.getItem(storageKey);
-      
+      const cookieTriggerFromBanner = document.getElementById('cookie-policy-trigger');
+    
+      // --- MODAL POPUP ELEMEK ---
+      const privacyModal = document.getElementById('privacy-modal');
+      const modalCard = document.getElementById('privacy-modal-card');
+      const privacyLinkFooter = document.getElementById('privacy-policy-link');
+      const modalCloseBtnX = document.getElementById('privacy-modal-close');
+      const modalCloseBtnBottom = document.getElementById('privacy-modal-close-btn');
+    
+      const cookieStorageKey = 'gepeszabc-cookie-consent-v2';
+      const savedConsent = localStorage.getItem(cookieStorageKey);
+    
+      // =======================================================================
+      // 1. SÜTI SÁV LOGIKA
+      // =======================================================================
       if (!savedConsent) {
-        setTimeout(() => {
-          banner.classList.remove('hidden');
-        }, 2000);
+        cookieBanner.classList.remove('hidden');
       } else {
-        const consent = JSON.parse(savedConsent);
-        applyConsent(consent);
+        applyConsent(JSON.parse(savedConsent));
       }
-      
-      function saveConsent(consent) {
-        localStorage.setItem(storageKey, JSON.stringify(consent));
-        banner.classList.add('hidden');
-        applyConsent(consent);
-      }
-      
+    
+      // Összes elfogadása
       acceptAllBtn.addEventListener('click', function () {
-        const consent = { necessary: true, analytics: true, marketing: true };
-        saveConsent(consent);
+        saveConsent({ necessary: true, marketing: true });
       });
-      
+    
+      // Kijelöltek mentése
       saveSelectedBtn.addEventListener('click', function () {
-        const consent = {
+        saveConsent({
           necessary: true,
-          analytics: analyticsCheckbox.checked,
           marketing: marketingCheckbox.checked
-        };
-        saveConsent(consent);
+        });
       });
-      
+    
+      // Összes elutasítása (Csak szükségesek)
       rejectOptionalBtn.addEventListener('click', function () {
-        const consent = { necessary: true, analytics: false, marketing: false };
-        saveConsent(consent);
+        saveConsent({ necessary: true, marketing: false });
       });
-      
+    
+      function saveConsent(consent) {
+        localStorage.setItem(cookieStorageKey, JSON.stringify(consent));
+        cookieBanner.classList.add('hidden');
+        applyConsent(consent);
+      }
+    
       function applyConsent(consent) {
-        if (consent.analytics) {
-          loadGoogleAnalytics();
-        }
         if (consent.marketing) {
           loadMetaPixel();
-          loadGoogleAdsRemarketing();
+        } else {
+          console.log('Meta Pixel letiltva a felhasználó által.');
         }
       }
-      
-      function loadGoogleAnalytics() {
-        console.log('Analitikai sütik engedélyezve -> Google Analytics betöltése...');
-      }
-      
+    
+      // Meta Pixel Dinamikus Betöltése
       function loadMetaPixel() {
-        console.log('Marketing sütik engedélyezve -> Meta (Facebook) Pixel betöltése...');
+        console.log('Meta Pixel betöltése hozzájárulással...');
+        if (window.fbq) return; 
+        
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '1390529826324395'); 
+        fbq('track', 'PageView');
       }
-      
-      function loadGoogleAdsRemarketing() {
-        console.log('Marketing sütik engedélyezve -> Google Ads remarketing betöltése...');
+    
+      // =======================================================================
+      // 2. POPUP MODAL LOGIKA
+      // =======================================================================
+      function openPrivacyModal() {
+        privacyModal.classList.remove('hidden');
+        setTimeout(() => {
+          modalCard.classList.remove('scale-95', 'opacity-0');
+          modalCard.classList.add('scale-100', 'opacity-100');
+        }, 50);
+        document.body.classList.add('overflow-hidden');
       }
+    
+      function closePrivacyModal() {
+        modalCard.classList.remove('scale-100', 'opacity-100');
+        modalCard.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+          privacyModal.classList.add('hidden');
+        }, 200);
+        document.body.classList.remove('overflow-hidden');
+      }
+    
+      if (privacyLinkFooter) privacyLinkFooter.addEventListener('click', openPrivacyModal);
+      if (cookieTriggerFromBanner) cookieTriggerFromBanner.addEventListener('click', openPrivacyModal);
+    
+      if (modalCloseBtnX) modalCloseBtnX.addEventListener('click', closePrivacyModal);
+      if (modalCloseBtnBottom) modalCloseBtnBottom.addEventListener('click', closePrivacyModal);
+    
+      privacyModal.addEventListener('click', function (e) {
+        if (e.target === privacyModal) {
+          closePrivacyModal();
+        }
+      });
+    
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !privacyModal.classList.contains('hidden')) {
+          closePrivacyModal();
+        }
+      });
     });
   </script>
 </body>
