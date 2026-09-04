@@ -63,7 +63,6 @@
 </head>
 <body class="font-sans text-gray-800 antialiased bg-gray-50">
 
-  <!-- Navbár -->
   <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 transition duration-300">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center gap-2 font-black text-xl text-primary tracking-tighter">
@@ -76,7 +75,6 @@
     </div>
   </nav>
 
-  <!-- Hero szekció -->
   <section class="hero-bg pt-32 pb-20 px-4 overflow-hidden">
     <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
       
@@ -102,12 +100,10 @@
         </div>
       </div>
       
-      <!-- 3D Könyvborító Generálása CSS-el -->
       <div class="md:col-span-5 flex justify-center perspective-1000 book-container relative pt-10 md:pt-0">
         <div class="absolute inset-0 bg-blue-400/20 blur-3xl rounded-full transform scale-75"></div>
         <div class="w-64 md:w-80 aspect-[1/1.4] relative book-cover rounded-r-xl border-l-4 border-slate-700 bg-white">
           <div class="book-spine"></div>
-          <!-- Borító grafika szimuláció -->
           <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800 rounded-r-xl overflow-hidden flex flex-col p-6 shadow-inner border border-slate-600/50">
             <div class="flex-1 flex flex-col justify-start pt-4 relative">
               <h2 class="text-white text-3xl font-black tracking-tight leading-none uppercase">
@@ -117,7 +113,6 @@
               <p class="text-slate-300 text-xs md:text-sm mt-4 leading-relaxed font-medium">Útmutató építkezőknek és felújítóknak a gépészeti rendszerekhez – az ötlettől a megvalósításig</p>
             </div>
             
-            <!-- Architektúra háttérkép (halványított) -->
             <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center mix-blend-overlay"></div>
             
             <div class="mt-auto relative z-10">
@@ -127,14 +122,12 @@
             </div>
           </div>
         </div>
-        <!-- Árnyék a könyv alatt -->
         <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/20 blur-xl rounded-full"></div>
       </div>
       
     </div>
   </section>
 
-  <!-- Mit találsz a könyvben szekció -->
   <section class="py-20 bg-white border-b border-gray-100">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -143,7 +136,6 @@
       </div>
       
       <div class="space-y-6">
-        <!-- I. Rész -->
         <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
           <h3 class="text-xl font-black text-primary mb-4 border-b border-gray-200 pb-2">I. Rész: Alapok és szemléletmód</h3>
           <ul class="space-y-2 text-gray-700 font-medium pl-2">
@@ -152,7 +144,6 @@
           </ul>
         </div>
         
-        <!-- II. Rész -->
         <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
           <h3 class="text-xl font-black text-primary mb-4 border-b border-gray-200 pb-2">II. Rész: A beszerzési stratégia</h3>
           <ul class="space-y-2 text-gray-700 font-medium pl-2">
@@ -160,7 +151,6 @@
           </ul>
         </div>
         
-        <!-- III-IV. Rész összevonva -->
         <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
           <h3 class="text-xl font-black text-primary mb-4 border-b border-gray-200 pb-2">III-IV. Rész: A "gépház" és a Megoldások</h3>
           <ul class="space-y-2 text-gray-700 font-medium pl-2 grid md:grid-cols-2 gap-x-6 gap-y-2">
@@ -175,7 +165,6 @@
           </ul>
         </div>
         
-        <!-- V. Rész -->
         <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
           <h3 class="text-xl font-black text-primary mb-4 border-b border-gray-200 pb-2">V. Rész: A végjáték</h3>
           <ul class="space-y-2 text-gray-700 font-medium pl-2">
@@ -187,7 +176,6 @@
     </div>
   </section>
 
-  <!-- Beleolvasó szekció -->
   <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
     <div class="max-w-6xl mx-auto px-4 relative z-10">
@@ -199,10 +187,8 @@
         <p class="text-xl text-slate-400">Részletek az e-könyvből. Hogy pontosan tudd, mire adod ki a pénzed.</p>
       </div>
       
-      <!-- Vízszintesen görgethető kártyák -->
       <div class="flex overflow-x-auto gap-6 pb-8 pt-4 hide-scrollbar snap-x snap-mandatory">
         
-        <!-- Oldal 1 -->
         <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-secondary shrink-0 h-[450px]">
           <div class="text-sm font-bold text-secondary uppercase tracking-widest mb-4">1. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">A jó gépészet láthatatlan...</h3>
@@ -215,7 +201,6 @@
           </div>
         </div>
         
-        <!-- Oldal 2 -->
         <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-accent shrink-0 h-[450px]">
           <div class="text-sm font-bold text-accent uppercase tracking-widest mb-4">2. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">A m²-alapú méretezés halála</h3>
@@ -228,7 +213,6 @@
           </div>
         </div>
         
-        <!-- Oldal 3 -->
         <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-blue-500 shrink-0 h-[450px]">
           <div class="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">4. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">HMV vs. Puffertároló</h3>
@@ -241,7 +225,6 @@
           </div>
         </div>
         
-        <!-- Oldal 4 -->
         <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-emerald-500 shrink-0 h-[450px]">
           <div class="text-sm font-bold text-emerald-500 uppercase tracking-widest mb-4">8. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">Pára, CO2 és a légszomj</h3>
@@ -254,7 +237,6 @@
           </div>
         </div>
         
-        <!-- Oldal 5 -->
         <div class="min-w-[320px] md:min-w-[400px] bg-white text-gray-900 rounded-2xl p-8 relative flex flex-col snap-center shadow-2xl border-t-8 border-danger shrink-0 h-[450px]">
           <div class="text-sm font-bold text-danger uppercase tracking-widest mb-4">13. Fejezet</div>
           <h3 class="text-2xl font-black mb-4 leading-tight">Tévhit: Lebegteti a port</h3>
@@ -275,7 +257,6 @@
     </div>
   </section>
 
-  <!-- Több mint egy könyv szekció -->
   <section class="py-24 bg-white px-4 relative">
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="text-center mb-16 max-w-3xl mx-auto">
@@ -285,7 +266,6 @@
       
       <div class="grid md:grid-cols-3 gap-8">
         
-        <!-- 1. A Tudás -->
         <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 relative shadow-sm">
           <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-xl text-primary shadow-sm mb-6 border border-gray-100">
             <i class="fa-solid fa-book text-secondary"></i>
@@ -296,7 +276,6 @@
           </p>
         </div>
         
-        <!-- 2. A Közösség -->
         <div class="bg-primary p-8 rounded-3xl relative transform md:-translate-y-4 shadow-2xl shadow-slate-900/30">
           <div class="bg-accent text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider absolute top-4 right-4">Fizethetetlen</div>
           <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center text-xl text-accent shadow-inner mb-6 border border-slate-700">
@@ -308,7 +287,6 @@
           </p>
         </div>
         
-        <!-- 3. A Megtérülés -->
         <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 relative shadow-sm">
           <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-xl text-green-500 shadow-sm mb-6 border border-gray-100">
             <i class="fa-solid fa-ticket"></i>
@@ -323,12 +301,10 @@
     </div>
   </section>
 
-  <!-- Rendelés szekció -->
   <section id="rendeles" class="py-24 bg-gray-100 px-4">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-12 gap-12">
         
-        <!-- Bal oszlop: Ár és Garancia -->
         <div class="md:col-span-5 space-y-6">
           <div>
             <h2 class="text-4xl font-black text-primary mb-4 leading-tight">A leggyorsabban megtérülő befektetésed.</h2>
@@ -353,74 +329,23 @@
           </div>
         </div>
         
-        <!-- Jobb oszlop: Űrlap és Kockázatátfordítás -->
         <div class="md:col-span-7">
           <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-200">
             
-            <form id="payment-form" class="space-y-5">
-              <h3 class="text-2xl font-black mb-8 text-primary">Hova küldjem az anyagokat?</h3>
-              
-              <div class="grid grid-cols-2 gap-5">
-                <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-2">Vezetéknév *</label>
-                  <input type="text" required class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white transition outline-none">
-                </div>
-                <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-2">Keresztnév *</label>
-                  <input type="text" required class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white transition outline-none">
-                </div>
-              </div>
-              
-              <div>
-                <label class="block text-sm font-bold text-gray-700 mb-2">E-mail cím * (Ide küldjük a hozzáférést)</label>
-                <input type="email" required class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white transition outline-none">
-              </div>
-              
-              <!-- Brutális Garancia beékkelve a fizetés elé -->
-              <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 flex items-start gap-4 my-8">
-                <div class="text-secondary text-3xl mt-1">
-                  <i class="fa-solid fa-shield-heart"></i>
-                </div>
-                <div>
-                  <h4 class="font-black text-primary text-base mb-1">A 7 Napos "Egy fillért sem buksz" Garancia</h4>
-                  <p class="text-gray-700 text-sm leading-relaxed font-medium">
-                    Tudom, hogy építkezéskor minden fillér számít. Ezért én vállalom a teljes kockázatot. Ha elolvasod a könyvet, és úgy érzed, nem spórolt neked legalább tízszer ennyit, vagy nem adott elegendő pajzsot a kivitelezői túlkapások ellen, csak írj egy e-mailt 7 napon belül, és kérdés nélkül, azonnal visszautalom a teljes 7.990 Ft-ot.
-                  </p>
-                </div>
-              </div>
-              
-              <!-- Súrlódáscsökkentő, whitespace-szel övezett E/1 CTA Gomb -->
-              <div class="py-4">
-                <button type="submit" id="submit-btn" class="w-full bg-accent hover:bg-yellow-500 text-white font-black py-5 rounded-xl text-xl transition duration-300 shadow-xl shadow-yellow-500/30 flex items-center justify-center gap-3">
-                  <span>Megrendelem a könyvet és kérem a bónuszokat (7.990 Ft)</span>
-                  <i class="fa-solid fa-lock text-lg"></i>
-                </button>
-              </div>
-              
-              <div class="flex justify-center gap-6 mt-4 text-gray-300 text-3xl">
-                <i class="fa-brands fa-cc-visa hover:text-gray-400 transition"></i>
-                <i class="fa-brands fa-cc-mastercard hover:text-gray-400 transition"></i>
-                <i class="fa-brands fa-cc-apple-pay hover:text-gray-400 transition"></i>
-              </div>
-            </form>
-            
-            <!-- Sikeres fizetés (Rejtett) -->
-            <div id="success-message" class="hidden text-center py-12">
-              <div class="w-24 h-24 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-5xl mx-auto mb-6">
-                <i class="fa-solid fa-check"></i>
-              </div>
-              <h3 class="text-3xl font-black text-primary mb-4">Sikertelen rendelés!</h3>
-              <p class="text-lg text-gray-600 font-medium">info@nyariterv.hu ! Köszönöm a bizalmadat! A könyvet, a számlát és a VIP Facebook csoport meghívóját perceken belül küldöm a megadott e-mail címedre.</p>
+            <iframe src="https://sf.nyariterv.hu/t/e/epuletgepeszeti-abc" scrolling="no" id="sfembed" style="min-width:100%;border:0"></iframe>
+            <script type="text/javascript" src="https://sf.nyariterv.hu/assets/js/iframeResizer.min.js"></script>
+            <script>
+              var iframe = document.getElementById('sfembed'); 
+              iframe.src = iframe.src + window.location.search; 
+              iFrameResize({ log: false }, '#sfembed');
+            </script>
             </div>
-            
-          </div>
         </div>
         
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-primary text-gray-400 py-12 text-center text-sm px-4 border-t border-slate-800">
     <div class="max-w-6xl mx-auto">
       <div class="font-black text-2xl text-white tracking-tighter mb-6 flex justify-center items-center gap-2">
@@ -436,7 +361,6 @@
     </div>
   </footer>
 
-  <!-- Sütisáv (Cookie Banner) Kezdete -->
   <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t border-gray-200 shadow-2xl md:max-w-xl md:left-4 md:bottom-4 md:rounded-2xl md:border hidden">
     <div class="space-y-4">
       <div class="flex items-start gap-3">
@@ -450,15 +374,12 @@
         </div>
       </div>
       
-      <!-- Részletes beállítások kategóriánként -->
       <div id="cookie-settings" class="space-y-2.5 border-t border-gray-100 pt-3">
-        <!-- 1. Szükséges sütik -->
         <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100">
           <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-500"></i>Szükséges (Technikai)</span>
           <span class="text-gray-400 italic font-semibold text-[10px]">Mindig aktív</span>
         </div>
         
-        <!-- 2. Analitikai sütik -->
         <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100 hover:border-blue-100 transition">
           <label for="cookie-analytics" class="flex items-center gap-2 cursor-pointer select-none">
             <i class="fa-solid fa-chart-line text-blue-500"></i> Analitika / Statisztika
@@ -466,7 +387,6 @@
           <input type="checkbox" id="cookie-analytics" class="w-4 h-4 rounded text-secondary border-gray-300 focus:ring-secondary cursor-pointer">
         </div>
         
-        <!-- 3. Marketing sütik -->
         <div class="flex items-center justify-between text-xs font-bold text-slate-700 bg-gray-50 p-2 rounded-lg border border-gray-100 hover:border-amber-100 transition">
           <label for="cookie-marketing" class="flex items-center gap-2 cursor-pointer select-none">
             <i class="fa-solid fa-bullseye text-accent"></i> Marketing / Remarketing
@@ -475,7 +395,6 @@
         </div>
       </div>
       
-      <!-- Interaktív Gombok -->
       <div class="flex flex-col sm:flex-row gap-2 pt-2 text-xs font-bold">
         <button id="cookie-accept-all" class="flex-1 bg-accent hover:bg-yellow-500 text-white py-3 px-4 rounded-xl transition duration-200 shadow-md text-center">
           Mindet elfogadom
@@ -490,29 +409,7 @@
     </div>
   </div>
 
-  <!-- Scriptek -->
   <script>
-    // Űrlap beküldése
-    const form = document.getElementById('payment-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const successMessage = document.getElementById('success-message');
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Gomb animáció
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Biztonságos átirányítás...';
-      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
-      submitBtn.disabled = true;
-      
-      // Szimulált API hívás (2 másodperc múlva mutatjuk a sikeres üzenetet)
-      setTimeout(() => {
-        form.classList.add('hidden');
-        successMessage.classList.remove('hidden');
-      }, 2000);
-    });
-    
     // Cookie Banner Kezelése
     document.addEventListener("DOMContentLoaded", function () {
       const banner = document.getElementById('cookie-banner');
