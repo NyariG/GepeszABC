@@ -584,7 +584,7 @@
       function applyConsent(consent) {
         if (consent.marketing) {
           loadMetaPixel();
-          
+          loadSalesFormPixel(); // ÚJ: SalesForm kód meghívása
           // BARION FULL PIXEL (Marketing engedéllyel)
           if (typeof window.bp === 'function') {
             console.log('Barion: Hozzájárulás és Termékmegtekintés küldése...');
@@ -627,6 +627,18 @@
         fbq('init', '1390529826324395'); 
         fbq('track', 'PageView');
       }
+
+      // --- SALESFORM KÖVETŐKÓD BETÖLTÉSE ---
+      function loadSalesFormPixel() {
+        // Ellenőrizzük, hogy nincs-e már betöltve, hogy ne duplázzuk
+        if (document.getElementById('sf-tracking-script')) return; 
+        
+        console.log('SalesForm követőkód betöltése engedéllyel...');
+        const script = document.createElement('script');
+        script.src = 'https://salesform.hu/4ad7c4371931b1defc14e34b2bccca15.js';
+        script.id = 'sf-tracking-script';
+        document.body.appendChild(script);
+      }
     
       // =======================================================================
       // 2. POPUP MODAL LOGIKA
@@ -666,6 +678,44 @@
         }
       });
     });
+
+    <!-- EARLY BIRD POPUP MODAL -->
+  <div id="early-bird-modal" class="fixed inset-0 z-[60] overflow-y-auto bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl flex flex-col transform transition-all duration-300 scale-95 opacity-0 border-4 border-danger relative overflow-hidden" id="early-bird-card">
+      
+      <!-- Figyelemfelhívó fejléc -->
+      <div class="bg-danger text-white text-center py-5 relative">
+        <button id="early-bird-close" class="absolute top-4 right-4 text-white/80 hover:text-white transition p-2">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <h3 class="text-2xl font-black uppercase tracking-widest"><i class="fa-solid fa-bolt text-yellow-300"></i> Titkos Early Bird Akció!</h3>
+      </div>
+  
+      <!-- Tartalom -->
+      <div class="p-8 text-center relative z-10">
+        <p class="text-lg text-slate-700 font-bold mb-4">Eljutottál az oldal aljára, ez azt jelenti, hogy komolyan érdekel a gépészet!</p>
+        <p class="text-slate-600 mb-6 font-medium">Jutalmul az első 10 gyors döntéshozó számára a könyv 7.990 Ft helyett most azonnal:</p>
+        
+        <div class="text-6xl font-black text-primary mb-6 flex justify-center items-baseline gap-1">
+          <span>4.990</span>
+          <span class="text-2xl font-bold text-gray-500">Ft</span>
+        </div>
+        
+        <p class="text-sm text-danger font-bold mb-6 animate-pulse"><i class="fa-solid fa-stopwatch"></i> Ne maradj le, már csak néhány darab maradt ezen az áron!</p>
+        
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+          <p class="text-xs text-amber-800 font-bold uppercase tracking-wider mb-1">Írd be ezt a kuponkódot a fizetésnél:</p>
+          <div class="text-2xl font-black text-accent tracking-widest select-all">EPULET</div>
+        </div>
+  
+        <a href="#rendeles" id="early-bird-cta" class="inline-block w-full bg-primary hover:bg-slate-800 text-white font-black py-4 px-6 rounded-xl transition duration-300 shadow-xl shadow-slate-900/20 text-lg">
+          Kérem a kedvezményt! <i class="fa-solid fa-arrow-down ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    
   </script>
 </body>
 </html>
